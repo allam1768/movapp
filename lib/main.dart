@@ -1,28 +1,41 @@
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:movie_app/bindings/profile_binding.dart';
 import 'package:movie_app/screens/Bottom_nav.dart';
+import 'package:movie_app/screens/Home.dart';
 import 'package:movie_app/screens/Login.dart';
+import 'package:movie_app/screens/Profile.dart';
 import 'package:movie_app/screens/Splash.dart';
+import 'package:movie_app/bindings/splash_binding.dart';
+import 'bindings/login_binding.dart';
+
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-
-      title: 'Flutter Demo',
-      initialRoute: '/splash',
+      initialRoute: '/',
       getPages: [
-        GetPage(name: '/splash', page: () => Splash_screen()),
-        GetPage(name: '/login', page: () => Login_screens()),
-        GetPage(name: '/home', page: () => BottomNav()), // Sesuaikan dengan halaman utama
+        GetPage(
+          name: '/',
+          page: () => SplashScreen(),
+          binding: SplashBinding(),
+        ),
+        GetPage(
+          name: '/login',
+          page: () => Login_screens(), // Pastikan nama kelas sesuai
+          binding: LoginBinding(),
+        ),
+        GetPage(name: '/home', page: () => bottom_nav()),
       ],
+      title: 'Your App Title',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
     );
   }
 }

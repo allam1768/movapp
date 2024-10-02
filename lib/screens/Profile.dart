@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class ProfileScreen extends StatelessWidget {
+class Profile_screen extends StatelessWidget {
   Future<void> _logout() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.remove('isLoggedIn'); // Hapus status login
     Get.offNamed('/login'); // Navigasi ke layar login
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +27,6 @@ class ProfileScreen extends StatelessWidget {
             ElevatedButton(
               onPressed: _logout,
               child: Text('Logout'),
-
             ),
           ],
         ),

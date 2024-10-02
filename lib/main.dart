@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:movie_app/bindings/profile_binding.dart';
 import 'package:movie_app/screens/Bottom_nav.dart';
 import 'package:movie_app/screens/Home.dart';
 import 'package:movie_app/screens/Login.dart';

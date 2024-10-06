@@ -41,7 +41,7 @@ class _bottom_navState extends State<bottom_nav> {
             color: _currentPage == 0 ? Colors.blue : Colors.white,
           ),
           Icon(
-            Icons.music_note,
+            Icons.search,
             color: _currentPage == 1 ? Colors.red : Colors.white,
           ),
           Icon(
@@ -56,13 +56,13 @@ class _bottom_navState extends State<bottom_nav> {
   Widget _getPage(int currentIndex) {
     switch (currentIndex) {
       case 0:
-        return Home_screen();
+        return HomeScreen();
       case 1:
-        return Search_screen();
+        return SearchScreen();
       case 2:
-        return Profile_screen();
+        return ProfileScreen();
       default:
-        return Home_screen();
+        return HomeScreen();
     }
   }
 

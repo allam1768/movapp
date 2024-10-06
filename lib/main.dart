@@ -4,8 +4,10 @@ import 'package:movie_app/screens/Bottom_nav.dart';
 import 'package:movie_app/screens/Home.dart';
 import 'package:movie_app/screens/Login.dart';
 import 'package:movie_app/screens/Profile.dart';
+import 'package:movie_app/screens/Search.dart';
 import 'package:movie_app/screens/Splash.dart';
 import 'package:movie_app/bindings/splash_binding.dart';
+
 import 'bindings/login_binding.dart';
 
 

@@ -9,17 +9,20 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+  // Data dummy film
+  final List<Map<String, String>> movies = [
+    { "image": "assets/images/satu.png"},
+    { "image": "assets/images/dua.png"},
+    { "image": "assets/images/tiga.png"},
+    { "image": "assets/images/empat.png"},
+    { "image": "assets/images/lima.png"},
+    { "image": "assets/images/enam.png"},
+  ];
+
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text(
-          'Search Movies',
-          style: TextStyle(color: Colors.white),
-        ),
-        backgroundColor: Color(0xFF001733),
-        brightness: Brightness.dark,
-      ),
+
       backgroundColor: const Color(0xFF001733),
       child: SafeArea(
         child: Padding(
@@ -43,49 +46,26 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
               const SizedBox(height: 20),
 
-              // Contoh grid hasil pencarian
+              // GridView untuk menampilkan film
               Expanded(
                 child: GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
-                    childAspectRatio: 0.7, // Untuk mengatur proporsi item
+                    childAspectRatio: 0.7,
                   ),
-                  itemCount: 6, // Jumlah dummy item
+                  itemCount: movies.length, // Jumlah item berdasarkan data
                   itemBuilder: (context, index) {
+                    final movie = movies[index];
                     return Container(
                       decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(10),
-                        image: const DecorationImage(
-                          image: AssetImage('assets/images/dummy_movie.jpg'),
+                        image: DecorationImage(
+                          image: AssetImage(movie["image"]!), // Mengambil gambar dari data
                           fit: BoxFit.cover,
                         ),
-                      ),
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            bottom: 10,
-                            left: 10,
-                            right: 10,
-                            child: Container(
-                              padding: const EdgeInsets.all(8),
-                              decoration: BoxDecoration(
-                                color: Colors.black.withOpacity(0.5),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              child: const Text(
-                                "Movie Title",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ),
-                        ],
                       ),
                     );
                   },

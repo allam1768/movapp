@@ -13,7 +13,7 @@ class SplashScreen extends StatelessWidget {
     controller.checkLoginStatus();
 
     return Scaffold(
-      backgroundColor: Color.fromRGBO(0, 23, 51, 1),
+      backgroundColor: Color(0xFF387478),
       body: Center(
         child: Image.asset(
           'assets/images/logo.png',

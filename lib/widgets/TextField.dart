@@ -5,13 +5,13 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final String labelText;
   final bool isPassword;
-  final Color backgroundColor; // Tambahkan properti untuk warna latar belakang
+  final Color backgroundColor;
 
   CustomTextField({
     required this.controller,
     required this.labelText,
     this.isPassword = false,
-    this.backgroundColor = Colors.grey, // Set default color jika tidak diberikan
+    this.backgroundColor = Colors.grey,
   });
 
   @override
@@ -23,15 +23,16 @@ class CustomTextField extends StatelessWidget {
         obscureText: isPassword,
         decoration: InputDecoration(
           labelText: labelText,
-          border: OutlineInputBorder(),
           labelStyle: TextStyle(color: Colors.white),
-          fillColor: backgroundColor, // Tambahkan warna latar belakang
-          filled: true, // Aktifkan pengisian latar belakang
+          fillColor: backgroundColor,
+          filled: true,
           enabledBorder: OutlineInputBorder(
-
+            borderRadius: BorderRadius.circular(15.0), // Border radius di sini
+            borderSide: BorderSide(color: Colors.transparent),
           ),
           focusedBorder: OutlineInputBorder(
-
+            borderRadius: BorderRadius.circular(15.0), // Border radius di sini juga
+            borderSide: BorderSide(color: Colors.white),
           ),
         ),
         style: TextStyle(color: Colors.white),

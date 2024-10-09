@@ -34,6 +34,9 @@ dependencies:
   cupertino_icons: ^1.0.6
   dot_curved_bottom_nav: ^0.0.2
   shared_preferences: ^2.0.13
+  motion_tab_bar_v2: ^0.3.0
+  sqflite: ^2.0.0+4
+
 
 
 

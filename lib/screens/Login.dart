@@ -10,11 +10,7 @@ class Login_screens extends StatelessWidget {
     final LoginController controller = Get.find(); // Mengambil controller
 
     return Scaffold(
-      backgroundColor: Color.fromRGBO(0, 23, 51, 1),
-      appBar: AppBar(
-        title: Text('Login'),
-        backgroundColor: Color.fromRGBO(0, 23, 51, 1),
-      ),
+      backgroundColor: Color(0xFF387478),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -24,9 +20,9 @@ class Login_screens extends StatelessWidget {
             Align(
               alignment: Alignment.center, // Bisa diubah jadi Alignment.bottomCenter
               child: Card(
-                color: Color(0xFF00224D),
+                color: Color(0xFF266165),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12.0),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 elevation: 8,
                 child: Padding(
@@ -41,35 +37,26 @@ class Login_screens extends StatelessWidget {
                         fit: BoxFit.cover, // Sesuaikan tampilan gambar
                       ),
                       SizedBox(height: 20),
-                      Text(
-                        'Login',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                      SizedBox(height: 30),
                       CustomTextField(
                         controller: controller.usernameController,
                         labelText: 'Username',
-                        backgroundColor: Color(0xFFA0153E),
+                        backgroundColor: Color(0xFF243642),
                       ),
                       SizedBox(height: 20),
                       CustomTextField(
                         controller: controller.passwordController,
                         labelText: 'Password',
                         isPassword: true,
-                        backgroundColor: Color(0xFFA0153E),
+                        backgroundColor: Color(0xFF243642),
                       ),
                       SizedBox(height: 40),
                       CustomButton(
                         text: 'Login',
                         onPressed: controller.login, // Menggunakan metode login dari controller
-                        backgroundColor: Color(0xFFA0153E),
+                        backgroundColor: Color(0xFF243642),
                         width: 200, // Mengatur lebar tombol
                         height: 37, // Mengatur tinggi tombol
-                        textColor: Color(0xFF29001B), // Mengatur warna teks
+                        textColor: Color(0xFFE2F1E7), // Mengatur warna teks
                       ),
                     ],
                   ),

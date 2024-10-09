@@ -4,7 +4,7 @@ import 'package:movie_app/screens/Bottom_nav.dart';
 import 'package:movie_app/screens/Home.dart';
 import 'package:movie_app/screens/Login.dart';
 import 'package:movie_app/screens/Profile.dart';
-import 'package:movie_app/screens/Search.dart';
+import 'package:movie_app/screens/Favorite.dart';
 import 'package:movie_app/screens/Splash.dart';
 import 'package:movie_app/bindings/splash_binding.dart';
 
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
           page: () => Login_screens(), // Pastikan nama kelas sesuai
           binding: LoginBinding(),
         ),
-        GetPage(name: '/home', page: () => bottom_nav()),
+        GetPage(name: '/home', page: () => BottomNav()),
       ],
       title: 'Your App Title',
       theme: ThemeData(

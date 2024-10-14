@@ -3,12 +3,11 @@ import 'package:movie_app/models/MovieModel.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
-class MovieController extends GetxController {
+class TaskController extends GetxController {
   static Database? _db;
 
   // List observable untuk semua movie dan favorit
-  var tasks = <Moviemodel>[].obs;
-  var favoriteTasks = <Moviemodel>[].obs;
+  var tasks = <Taskmodel>[].obs;
 
   Future<Database?> get db async {
     if (_db == null) {
@@ -19,16 +18,16 @@ class MovieController extends GetxController {
 
   Future<Database> initDB() async {
     var databasePath = await getDatabasesPath();
-    String path = join(databasePath, 'movie_database.db');
+    String path = join(databasePath, 'task_database.db');
 
     return await openDatabase(
       path,
       version: 1,
       onCreate: (db, version) async {
         await db.execute('''
-          CREATE TABLE movies(
+          CREATE TABLE tasks(
             id INTEGER PRIMARY KEY AUTOINCREMENT, 
-            title TEXT, 
+            title TEXT,
             posterPath TEXT, 
             imdb TEXT
           )
@@ -37,28 +36,25 @@ class MovieController extends GetxController {
     );
   }
 
-  Future<int> addTask(Moviemodel task) async {
+  Future<int> addTask(Taskmodel task) async {
     var dbClient = await db;
-    int result = await dbClient!.insert('movies', task.toMap());
+    // Ubah nama tabel dari 'tasks' menjadi 'movies' sesuai dengan tabel yang dibuat
+    int result = await dbClient!.insert('tasks', task.toMap());
     loadTasks(); // Refresh list tasks
     return result;
   }
 
   Future<void> loadTasks() async {
     var dbClient = await db;
-    List<Map<String, dynamic>> queryResult = await dbClient!.query('movies');
-    tasks.assignAll(queryResult.map((data) => Moviemodel.fromMap(data)).toList());
+    // Query ke tabel 'movies', bukan 'tasks'
+    List<Map<String, dynamic>> queryResult = await dbClient!.query('tasks');
+    tasks.assignAll(queryResult.map((data) => Taskmodel.fromMap(data)).toList());
   }
 
-  Future<void> loadFavoriteTasks() async {
+  Future<void> deleteTask(int id) async {
     var dbClient = await db;
-    List<Map<String, dynamic>> queryResult = await dbClient!.query('movies');
-    favoriteTasks.assignAll(queryResult.map((data) => Moviemodel.fromMap(data)).toList());
-  }
-
-  Future<void> deleteTask(int id)async {
-    var dbClient = await db;
-    await dbClient!.delete('tasks',where: 'id = ?', whereArgs: [id] );
+    // Hapus dari tabel 'movies', bukan 'tasks'
+    await dbClient!.delete('tasks', where: 'id = ?', whereArgs: [id]);
     loadTasks();
   }
 }

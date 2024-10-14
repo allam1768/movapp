@@ -23,8 +23,10 @@ class _BottomNavState extends State<BottomNav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _screens[_currentIndex], // Menampilkan halaman sesuai index saat ini
-      bottomNavigationBar: MotionTabBar(
+      body: _screens[_currentIndex],
+      // Menampilkan halaman sesuai index saat ini
+      bottomNavigationBar:
+      MotionTabBar(
         initialSelectedTab: "Movie",
         useSafeArea: true,
         labels: const ["Movie", "Favorite", "Profile"],
@@ -36,7 +38,7 @@ class _BottomNavState extends State<BottomNav> {
         tabIconColor: Colors.blueGrey,
         tabIconSize: 28.0,
         tabIconSelectedSize: 26.0,
-        tabSelectedColor: Colors.blue,
+        tabSelectedColor: Color(0xFF629584),
         tabIconSelectedColor: Colors.white,
         onTabItemSelected: (index) {
           setState(() {

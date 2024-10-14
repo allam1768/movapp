@@ -11,7 +11,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF001733),
+      backgroundColor: const Color(0xFF387478),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -20,7 +20,7 @@ class ProfileScreen extends StatelessWidget {
             ElevatedButton.icon(
               onPressed: profileController.logout, // Menghubungkan tombol dengan controller
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF29001B), // Warna tombol
+                backgroundColor: const Color(0xFF243642), // Warna tombol
                 padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15), // Ukuran tombol
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30), // Membuat tombol lebih bulat

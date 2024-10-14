@@ -1,35 +1,31 @@
-class Moviemodel {
+class Taskmodel {
   int? id;
-  String judul;
+  String title;
   String posterPath;
   String imdb;
-  int isFavorite;
 
-  Moviemodel({
+  Taskmodel({
     this.id,
-    required this.judul,
+    required this.title,
     required this.posterPath,
     required this.imdb,
-    this.isFavorite = 0, // Default non-favorit
   });
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'judul': judul,
+      'title': title,
       'posterPath': posterPath,
       'imdb': imdb,
-      'isFavorite': isFavorite,
     };
   }
 
-  factory Moviemodel.fromMap(Map<String, dynamic> map) {
-    return Moviemodel(
+  factory Taskmodel.fromMap(Map<String, dynamic> map) {
+    return Taskmodel(
       id: map['id'],
-      judul: map['judul'],
+      title: map['title'],
       posterPath: map['posterPath'],
       imdb: map['imdb'],
-      isFavorite: map['isFavorite'],
     );
   }
 }

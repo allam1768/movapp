@@ -1,69 +1,60 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:movie_app/models/MovieModel.dart';
-
+import 'package:movie_app/widgets/MovieCard.dart';
+import 'package:movie_app/widgets/card2.dart';
 import '../controllers/Movie_controller.dart';
 
 class FavoriteScreen extends StatefulWidget {
-  const FavoriteScreen({Key? key}) : super(key: key);
+  const FavoriteScreen({super.key});
 
   @override
   State<FavoriteScreen> createState() => _FavoriteScreenState();
 }
 
 class _FavoriteScreenState extends State<FavoriteScreen> {
-  final MovieController movieController = Get.put(MovieController());
-
-  @override
-  void initState() {
-    super.initState();
-    movieController.loadFavoriteTasks(); // Memuat film favorit dari database
-  }
+  final TaskController taskController = Get.put(TaskController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF387478),
-      appBar: AppBar(
-        title: const Text('Favorite Movies'),
-        backgroundColor: const Color(0xFF00224D),
-      ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16),
         child: Obx(() {
-          if (movieController.favoriteTasks.isEmpty) {
-            return const Center(
-              child: Text(
-                'No favorite movies yet!',
-                style: TextStyle(color: Colors.white),
-              ),
-            );
-          } else {
-            return Expanded(
-              child: ListView.builder(
-                itemCount: movieController.favoriteTasks.length,
-                itemBuilder: (context, index) {
-                  final movie = movieController.favoriteTasks[index];
-                  return ListTile(
-                    leading: Image.asset(movie.posterPath), // Gambar poster film
-                    title: Text(movie.judul),
-                    subtitle: Text('IMDb: ${movie.imdb}'),
-                    trailing: IconButton(
-                      icon: const Icon(Icons.delete, color: Colors.red),
-                      onPressed: () {
-                        // Hapus film dari favorit
-                        movieController.deleteTask(movie.id!);
+          return GridView.builder(
+            itemCount: taskController.tasks.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3, // Number of columns
+              crossAxisSpacing: 8, // Horizontal space between items
+              mainAxisSpacing: 0, // Smaller vertical space between rows
+              childAspectRatio: 0.5, // Aspect ratio of the grid items
+            ),
+
+
+
+
+            itemBuilder: (context, index) {
+              final movie = taskController.tasks[index];
+              return GridTile(
+                child: Column(
+                  children: [
+
+                    MovieCard2(
+                      title: movie.title,
+                      posterPath: movie.posterPath,
+                      imdbRating: double.parse(movie.imdb), // Konversi jika imdb adalah String
+                      onWatchPressed: (){},
+                      onBookmarkPressed: (bool isBookmarked) { // Menghapus film dari favorit
+                        taskController.deleteTask(movie.id!);
                         Get.snackbar("Berhasil", "Film dihapus dari favorit");
                       },
-                    ),
-                    onLongPress: () {
-                      // Bisa digunakan untuk logika tambahan
-                    },
-                  );
-                },
-              ),
-            );
-          }
+                    )
+                  ],
+                ),
+              );
+            },
+          );
         }),
       ),
     );

@@ -30,24 +30,89 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
               mainAxisSpacing: 0, // Smaller vertical space between rows
               childAspectRatio: 0.5, // Aspect ratio of the grid items
             ),
-
-
-
-
             itemBuilder: (context, index) {
               final movie = taskController.tasks[index];
               return GridTile(
                 child: Column(
                   children: [
-
                     MovieCard2(
                       title: movie.title,
                       posterPath: movie.posterPath,
                       imdbRating: double.parse(movie.imdb), // Konversi jika imdb adalah String
-                      onWatchPressed: (){},
-                      onBookmarkPressed: (bool isBookmarked) { // Menghapus film dari favorit
-                        taskController.deleteTask(movie.id!);
-                        Get.snackbar("Berhasil", "Film dihapus dari favorit");
+                      onWatchPressed: () {},
+                      onBookmarkPressed: (bool isBookmarked) {
+                        // Tampilkan dialog konfirmasi sebelum menghapus
+                        Get.defaultDialog(
+                          title: "Hapus dari favorit",
+                          titleStyle: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                          content: Column(
+                            children: [
+                              // Icon(
+                              //   Icons.warning_amber_rounded,
+                              //   size: 50,
+                              //   color: Colors.yellow,
+                              // ),
+                              SizedBox(height: 16),
+                              Text(
+                                "Apakah Anda yakin ingin menghapus film ini dari favorit?",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                          backgroundColor: Color(0xFF003B4C),
+                          radius: 15,
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                taskController.deleteTask(movie.id!);
+                                Get.snackbar("Berhasil", "Film dihapus dari favorit");
+                                Get.close(0); // Tutup dialog setelah menghapus
+                              },
+                              style: TextButton.styleFrom(
+                                backgroundColor: Colors.red,
+                                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                              child: Text(
+                                "Ya, Hapus",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: 10),
+                            TextButton(
+                              onPressed: () {
+                                Get.back(); // Tutup dialog jika user membatalkan
+                              },
+                              style: TextButton.styleFrom(
+                                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                side: BorderSide(color: Colors.blue),
+                              ),
+                              child: Text(
+                                "Batal",
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
                       },
                     )
                   ],

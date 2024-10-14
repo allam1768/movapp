@@ -75,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       onBookmarkPressed: (bool isBookmarked) {
                         Taskmodel task = Taskmodel(
-                          title: 'Film Satu',
+                          title: 'Cars 4',
                           posterPath: 'assets/images/satu.png',
                           imdb: '7.7',
                         );
@@ -83,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
                     MovieCard(
-                      title: 'Cars 4',
+                      title: 'Kung Fu Panda 4',
                       posterPath: 'assets/images/dua.png',
                       imdbRating: 7.7,
                       onWatchPressed: () {
@@ -91,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       onBookmarkPressed: (bool isBookmarked) {
                         Taskmodel task = Taskmodel(
-                          title: 'Film Satu',
+                          title: 'Kung Fu Panda 4',
                           posterPath: 'assets/images/dua.png',
                           imdb: '7.7',
                         );
@@ -99,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
                     MovieCard(
-                      title: 'Cars 4',
+                      title: 'Despicable me 4',
                       posterPath: 'assets/images/tiga.png',
                       imdbRating: 7.7,
                       onWatchPressed: () {
@@ -107,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       onBookmarkPressed: (bool isBookmarked) {
                         Taskmodel task = Taskmodel(
-                          title: 'Film Satu',
+                          title: 'Despicable me 4',
                           posterPath: 'assets/images/tiga.png',
                           imdb: '7.7',
                         );
@@ -115,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
                     MovieCard(
-                      title: 'Cars 4',
+                      title: 'Paw Patrol',
                       posterPath: 'assets/images/empat.png',
                       imdbRating: 7.7,
                       onWatchPressed: () {
@@ -123,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       onBookmarkPressed: (bool isBookmarked) {
                         Taskmodel task = Taskmodel(
-                          title: 'Film Satu',
+                          title: 'Paw Patrol',
                           posterPath: 'assets/images/empat.png',
                           imdb: '7.7',
                         );
@@ -131,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
                     MovieCard(
-                      title: 'Cars 4',
+                      title: 'Mario Bros',
                       posterPath: 'assets/images/lima.png',
                       imdbRating: 7.7,
                       onWatchPressed: () {
@@ -139,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       onBookmarkPressed: (bool isBookmarked) {
                         Taskmodel task = Taskmodel(
-                          title: 'Film Satu',
+                          title: 'Mario Bros',
                           posterPath: 'assets/images/lima.png',
                           imdb: '7.7',
                         );
@@ -147,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
                     MovieCard(
-                      title: 'Cars 4',
+                      title: 'Spiderman',
                       posterPath: 'assets/images/enam.png',
                       imdbRating: 7.7,
                       onWatchPressed: () {
@@ -155,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       onBookmarkPressed: (bool isBookmarked) {
                         Taskmodel task = Taskmodel(
-                          title: 'Film Satu',
+                          title: 'Spiderman',
                           posterPath: 'assets/images/enam.png',
                           imdb: '7.7',
                         );
@@ -163,7 +163,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
                     MovieCard(
-                      title: 'Cars 4',
+                      title: 'Sonic 2',
                       posterPath: 'assets/images/tujuh.png',
                       imdbRating: 7.7,
                       onWatchPressed: () {
@@ -171,7 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       onBookmarkPressed: (bool isBookmarked) {
                         Taskmodel task = Taskmodel(
-                          title: 'Film Satu',
+                          title: 'Sonic 2',
                           posterPath: 'assets/images/tujuh.png',
                           imdb: '7.7',
                         );
@@ -179,7 +179,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
                     MovieCard(
-                      title: 'Cars 4',
+                      title: 'Elemental',
                       posterPath: 'assets/images/lapan.png',
                       imdbRating: 7.7,
                       onWatchPressed: () {
@@ -187,7 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       onBookmarkPressed: (bool isBookmarked) {
                         Taskmodel task = Taskmodel(
-                          title: 'Film Satu',
+                          title: 'Elemental',
                           posterPath: 'assets/images/lapan.png',
                           imdb: '7.7',
                         );
@@ -195,7 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
                     MovieCard(
-                      title: 'Cars 4',
+                      title: 'Garfield',
                       posterPath: 'assets/images/sembilan.png',
                       imdbRating: 7.7,
                       onWatchPressed: () {
@@ -203,7 +203,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       onBookmarkPressed: (bool isBookmarked) {
                         Taskmodel task = Taskmodel(
-                          title: 'Film Satu',
+                          title: 'Garfield',
                           posterPath: 'assets/images/sembilan.png',
                           imdb: '7.7',
                         );
